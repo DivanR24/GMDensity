@@ -32,7 +32,7 @@ def fetch_map():
   
   # plots the user's location
   gmap.scatter([self_lat], [self_lon], c='b', marker=False, size = 20)
-  gmap.draw('templates/index.html')
+  gmap.draw('index.html')
 
 if __name__ == '__main__':
   webbrowser.open(os.path.join(os.path.dirname(__file__) + '/templates/' + 'index.html'))
