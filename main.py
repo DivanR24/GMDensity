@@ -1,9 +1,15 @@
-import gmplot
-import pandas as pd
-coordinates = pd.read_csv('coordination.csv')
-coordinatesappended = pd.DataFrame([[5, 6], [7, 8]], columns=list('AB'))
-gmap = gmplot.GoogleMapPlotter(40.721643, -74.070558, 16, apikey='AIzaSyD7k0YLCtod0NTuxmBMej0Cf70LdCzZSx4', )
-gmap.heatmap(coordinates.lat, coordinates.lon)#
-gmap.scatter(coordinates.lat, coordinates.lon, c='r', marker=False, alpha = 0.1, size = 14)
-gmap.draw('index.html')
+from flask import Flask
+from flask import render_template
+import map_gen
 
+
+app = Flask(__name__)
+
+@app.route('/')
+def rend_map():
+  map_gen.fetch_map()
+  return render_template("index.html")
+
+
+
+app.run(host='0.0.0.0', port=8080)
