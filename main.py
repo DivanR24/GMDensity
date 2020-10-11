@@ -1,7 +1,5 @@
 from flask import Flask
 from flask import render_template
-from flask import jsonify
-from flask import request
 import map_gen
 
 
@@ -15,3 +13,6 @@ def rend_map():
 
 
 app.run(host='0.0.0.0', port=8080)
+
+
+#note: this is planned to be implemented in the future for real-time updates via a flask web app, or we may use django if it will serve better.
